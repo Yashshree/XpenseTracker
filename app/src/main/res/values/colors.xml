@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#D81B60</color>
+    <color name="secondary">#F7DC6F</color>
+    <color name="colorGray">#B2BABB</color>
+    <color name="colorLightRed">#F8BBD0</color>
+    <color name="colorGreen">#689F38</color>
+    <color name="colorPink">#FCE4EC</color>
+    <color name="colorGray_100">#F8F9F9</color>
+    <color name="colorRed">#E64A19</color>
+    <color name="colorBlue">#5DADE2</color>
+    <color name="colorMintBlue">#646D7E</color>
+    <color name="colorBrownRipple">#EC7063</color>
+    <color name="colorPurpleRipple">#AF7AC5</color>
+    <color name="colorBlueRipple">#5DADE2</color>
+    <color name="colorGreenRipple">#48C9B0</color>
+    <color name="colorYellowRipple">#F4D03F</color>
+    <color name="colorOrangeRipple">#F5B041</color>
+    <color name="colorGrayRipple">#CACFD2</color>
+    <color name="colorRedRipple">#EC7063 </color>
+    <color name="colorPinkRipple">#FF69B4</color>
+    <color name="colorBiskitRipple">#997950</color>
+    <color name="colorOliveRipple">#708238</color>
+    <color name="colorHiBiscusRipple">#B43757</color>
+    <color name="colorFruciaRipple">#FB607F</color>
+
+</resources>

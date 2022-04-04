@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<TextView
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="@dimen/_100sdp"
+    android:layout_height="wrap_content"
+    android:text="Food and Drinks"
+    android:textColor="@color/black"
+    android:textAlignment="center"
+    android:id="@+id/txtCategory"
+    android:drawableTop="@drawable/ic_food"
+    android:layout_margin="@dimen/_8sdp"
+    android:padding="@dimen/_6sdp"
+    android:textSize="@dimen/_12sdp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_gravity="center_horizontal"
+    tools:background="@color/colorGray_100"
+    android:drawablePadding="@dimen/_6sdp"
+    >
+</TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "727712548432",
+    "firebase_url": "https://xpense-tracker-57f7a-default-rtdb.firebaseio.com",
+    "project_id": "xpense-tracker-57f7a",
+    "storage_bucket": "xpense-tracker-57f7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727712548432:android:d77c870f04ca5e7b8cf355",
+        "android_client_info": {
+          "package_name": "com.com.xpensetracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727712548432-d5a0jml53ki1irtvegbgto35lt17dpo4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.com.xpensetracker",
+            "certificate_hash": "4cb026b8fd972cfb9376fd632d151c40dd91bc4b"
+          }
+        },
+        {
+          "client_id": "727712548432-j4sg39em7qg16e22jgajis770ds0bfcv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdW7TDndxpSpPB8uf8niFZuqq1zjD3yhU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727712548432-j4sg39em7qg16e22jgajis770ds0bfcv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
