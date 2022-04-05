@@ -58,7 +58,8 @@ class CategoryAdapter(var listener: OnListItemClickListener,var categoryList: Ar
 
                 txtCategory.setCompoundDrawablesWithIntrinsicBounds(0, this.image, 0, 0);
 
-                if(this.isSelected){
+                if(this.isSelected)
+                {
                     for (drawable in holder.binding.txtCategory.compoundDrawablesRelative) {
                         if (drawable != null) {
                             drawable.colorFilter =
@@ -106,8 +107,9 @@ class CategoryAdapter(var listener: OnListItemClickListener,var categoryList: Ar
 
                 //txtCategory.setBackgroundColor(R.color.color)
 
-                txtCategory.foreground =
-                    AppCompatResources.getDrawable(context,categoryList[position].rippleBackground)
+               /* txtCategory.foreground =
+                    AppCompatResources.getG(context,categoryList[position].rippleBackground)*/
+
             }
         }
     }

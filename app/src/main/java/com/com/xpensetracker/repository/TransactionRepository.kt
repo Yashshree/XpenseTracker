@@ -12,4 +12,8 @@ class TransactionRepository @Inject constructor(var roomDatabase: AppDatabase) {
     val expenseAmountList : LiveData<List<Int>> = roomDatabase.transactionDao().getExpenseAmountList()
     val investmentAmountList : LiveData<List<Int>> = roomDatabase.transactionDao().getInvestmentAmountList()
 
+    suspend fun updateTransaction(transaction:Transaction){
+        roomDatabase.transactionDao().insertTransaction(transaction)
+    }
+
 }

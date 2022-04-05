@@ -2,15 +2,18 @@ package com.com.xpensetracker.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.com.xpensetracker.R
 import com.com.xpensetracker.databinding.SingleItemTransactionBinding
+import com.com.xpensetracker.interfaces.OnListItemClickListener
+import com.com.xpensetracker.interfaces.OnTransactionItemClickListener
 import com.com.xpensetracker.model.Transaction
 import com.com.xpensetracker.utils.TransactionType
 
-class TransactionAdapter(var transactionList: ArrayList<Transaction>, var context: Context) :
+class TransactionAdapter(var transactionList: ArrayList<Transaction>, var context: Context,var listener:OnTransactionItemClickListener) :
     RecyclerView.Adapter<TransactionAdapter.CustomViewHolder>() {
 
     class CustomViewHolder(val binding: SingleItemTransactionBinding) :
@@ -19,12 +22,19 @@ class TransactionAdapter(var transactionList: ArrayList<Transaction>, var contex
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val binding =
             SingleItemTransactionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
         return CustomViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CustomViewHolder, position: Int){
+
         with(holder) {
             with(transactionList[position]) {
+
+                binding.rootView.setOnClickListener {
+                    listener.onItemClick(transactionList[position])
+                }
+
                 binding.txtTransactionName.text = note
                 binding.txtAmount.text = amount.toString()
 

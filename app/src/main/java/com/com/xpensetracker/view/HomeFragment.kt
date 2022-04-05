@@ -20,13 +20,15 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 import androidx.lifecycle.Observer
+import com.com.xpensetracker.interfaces.OnTransactionItemClickListener
+import com.com.xpensetracker.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(), View.OnClickListener {
-     var _binding: FragmentHomeBinding ? =null
- val binding get() = _binding!!
-    val homeViewModel : HomeViewModel by activityViewModels()
+class HomeFragment : Fragment(), View.OnClickListener , OnTransactionItemClickListener {
+    var _binding: FragmentHomeBinding? = null
+    val binding get() = _binding!!
+    val homeViewModel: HomeViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,7 +46,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initializeView() {
-        Log.e("Home Activity=======","called")
+        Log.e("Home Activity=======", "called")
 
         val currentDate = Calendar.getInstance().time
 
@@ -52,8 +54,10 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         binding.txtHomeHeadMonth.text = df.format(currentDate)
 
-        binding.txtDaysLeftToCompleteMonth.text = String.format("%s Days Left ",
-            getDaysLeftForMonthToEnd().toString())
+        binding.txtDaysLeftToCompleteMonth.text = String.format(
+            "%s Days Left ",
+            getDaysLeftForMonthToEnd().toString()
+        )
 
         binding.layoutEmptyScreen.txtAddTransaction.setOnClickListener(this)
 
@@ -62,39 +66,39 @@ class HomeFragment : Fragment(), View.OnClickListener {
         val layoutManager = LinearLayoutManager(requireActivity())
 
         homeViewModel.transactionList.observe(requireActivity(), Observer {
-            if(it.count()!=0) {
+            if (it.count() != 0) {
 
                 showPopulatedScreenLayout()
 
                 binding.recyclerViewTransaction.adapter =
-                    TransactionAdapter(ArrayList<Transaction>(it), requireActivity())
+                    TransactionAdapter(ArrayList<Transaction>(it), requireActivity(),this)
                 binding.recyclerViewTransaction.layoutManager = layoutManager
 
-            }else{
+            } else {
                 showEmptyScreenLayout()
             }
         })
 
 
         homeViewModel.incomeAmountList.observe(requireActivity(), Observer {
-            if(it.count()!=0) {
-                binding.txtAmountAvailable.text= it.sum().toString()
+            if (it.count() != 0) {
+                binding.txtAmountAvailable.text = it.sum().toString()
 
 
             }
         })
 
         homeViewModel.expenseAmountList.observe(requireActivity(), Observer {
-            if(it.count()!=0) {
-                binding.txtExpenseAmount.text= it.sum().toString()
+            if (it.count() != 0) {
+                binding.txtExpenseAmount.text = it.sum().toString()
 
 
             }
         })
 
         homeViewModel.investmentAmountList.observe(requireActivity(), androidx.lifecycle.Observer {
-            if(it.count()!=0) {
-                binding.txtInvestedAmount.text= it.sum().toString()
+            if (it.count() != 0) {
+                binding.txtInvestedAmount.text = it.sum().toString()
 
 
             }
@@ -103,27 +107,35 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun showPopulatedScreenLayout() {
-        binding.mainLayout.visibility= View.VISIBLE
+        binding.mainLayout.visibility = View.VISIBLE
         binding.layoutEmptyScreen.layoutEmptyScreen.visibility = View.GONE
-        binding.fabAddTransaction.visibility=View.VISIBLE
+        binding.fabAddTransaction.visibility = View.VISIBLE
     }
 
     private fun showEmptyScreenLayout() {
-        binding.mainLayout.visibility= View.GONE
+        binding.mainLayout.visibility = View.GONE
         binding.layoutEmptyScreen.layoutEmptyScreen.visibility = View.VISIBLE
-        binding.fabAddTransaction.visibility=View.GONE
+        binding.fabAddTransaction.visibility = View.GONE
     }
 
     override fun onClick(p0: View?) {
-        when(p0?.id){
-            R.id.txtAddTransaction,R.id.fabAddTransaction->{
+        when (p0?.id) {
+            R.id.txtAddTransaction, R.id.fabAddTransaction -> {
                 goToAddTransactionActivity()
             }
         }
     }
 
     private fun goToAddTransactionActivity() {
-        val intent= Intent(requireActivity(),AddTransactionActivity::class.java)
+        val intent = Intent(requireActivity(), AddTransactionActivity::class.java)
+        intent.putExtra("TODO",Constants.ADD_TRANSACTION)
+        startActivity(intent)
+    }
+
+    override fun onItemClick(transaction: Transaction) {
+        val intent = Intent(requireActivity(), AddTransactionActivity::class.java)
+        intent.putExtra("TODO",Constants.UPDATE_TRANSACTION)
+        intent.putExtra("Transaction",transaction)
         startActivity(intent)
     }
 }

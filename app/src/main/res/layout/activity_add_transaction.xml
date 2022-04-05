@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:id="@+id/rootView"
-    tools:context=".view.AddCategoryActivity">
+    tools:context=".view.AddTransactionActivity">
 
     <ImageView
         android:id="@+id/imgClose"
@@ -166,7 +166,7 @@
         android:text="@string/txt_add_transaction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtAddNote">
+        app:layout_constraintTop_toBottomOf="@+id/edtAddNote"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnUpdateTransaction"
@@ -176,25 +176,27 @@
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:text="@string/txt_add_transaction"
+        android:text="@string/txt_update_transaction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtAddNote">
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddTransaction"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddTransaction"
+        android:id="@+id/btnDeleteTransaction"
         style="@style/ButtonStyle"
+        android:backgroundTint="@color/colorGray"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:text="@string/txt_add_transaction"
+        android:text="@string/txt_delete_transaction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtAddNote">
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdateTransaction"/>
 
 
 
-    </com.google.android.material.button.MaterialButton>
 </androidx.constraintlayout.widget.ConstraintLayout>

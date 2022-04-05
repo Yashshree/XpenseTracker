@@ -3,12 +3,14 @@ package com.com.xpensetracker.dao
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
+import androidx.room.Update
 import com.com.xpensetracker.model.Transaction
 
 @Dao
 interface TransactionDao {
-    @Insert
+    @Insert (onConflict = REPLACE)
     fun insertTransaction(transaction:Transaction):Long
 
     @Query("SELECT * FROM `Transaction`")
@@ -23,4 +25,6 @@ interface TransactionDao {
 
     @Query("SELECT amount from `Transaction` where type='SAVING_INVESTMENT'")
     fun getInvestmentAmountList():LiveData<List<Int>>
+
+
 }

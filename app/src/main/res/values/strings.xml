@@ -31,4 +31,6 @@
     <string name="txt_income">Income</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_update_transaction">Update Transaction</string>
+    <string name="txt_delete_transaction">Delete Transaction</string>
 </resources>
